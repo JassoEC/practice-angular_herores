@@ -5,6 +5,7 @@ import { HeroComponent } from './pages/hero/hero.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/list/list.component';
 import { HeroesRoutingModule } from './heroes-routing.module';
+import { SearchComponent } from './pages/search/search.component';
 
 
 
@@ -13,7 +14,8 @@ import { HeroesRoutingModule } from './heroes-routing.module';
     AddComponent,
     HeroComponent,
     HomeComponent,
-    ListComponent
+    ListComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
