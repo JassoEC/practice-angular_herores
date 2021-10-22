@@ -8,6 +8,7 @@ import { HeroesRoutingModule } from './heroes-routing.module';
 import { SearchComponent } from './pages/search/search.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material/material.module';
+import { HeroCardComponent } from './components/hero-card/hero-card.component';
 
 
 
@@ -17,7 +18,8 @@ import { MaterialModule } from '../material/material.module';
     HeroComponent,
     HomeComponent,
     ListComponent,
-    SearchComponent
+    SearchComponent,
+    HeroCardComponent
   ],
   imports: [
     CommonModule,
