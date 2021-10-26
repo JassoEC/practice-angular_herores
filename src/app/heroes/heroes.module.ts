@@ -9,6 +9,7 @@ import { SearchComponent } from './pages/search/search.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material/material.module';
 import { HeroCardComponent } from './components/hero-card/hero-card.component';
+import { HeroImagePipe } from './pipes/hero-image.pipe';
 
 
 
@@ -19,7 +20,8 @@ import { HeroCardComponent } from './components/hero-card/hero-card.component';
     HomeComponent,
     ListComponent,
     SearchComponent,
-    HeroCardComponent
+    HeroCardComponent,
+    HeroImagePipe
   ],
   imports: [
     CommonModule,
