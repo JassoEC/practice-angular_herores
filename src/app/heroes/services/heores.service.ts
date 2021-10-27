@@ -7,8 +7,15 @@ import { Hero } from '../interfaces/heroes.interface';
   providedIn: 'root',
 })
 export class HeoresService {
+  path: string = 'http://localhost:3000/heroes';
+
   constructor(private http: HttpClient) {}
-  getHeroes = ():Observable<Hero[]> => {
-    return this.http.get<Hero[]>('http://localhost:3000/heroes');
+
+  getHeroes = (): Observable<Hero[]> => {
+    return this.http.get<Hero[]>(this.path);
+  };
+
+  getHeroById = (id: number): Observable<Hero> => {
+    return this.http.get<Hero>(`${this.path}/${id}`);
   };
 }
