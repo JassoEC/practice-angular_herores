@@ -21,8 +21,10 @@ export class HeoresService {
   };
 
   filter = (value: string): Observable<Hero[]> => {
-    
-    
     return this.http.get<Hero[]>(`${this.baseUrl}?q=${value}&_limit=5`);
+  };
+
+  storeHero = (hero: Hero): Observable<Hero> => {
+    return this.http.post<Hero>(`${this.baseUrl}`, hero);
   };
 }
