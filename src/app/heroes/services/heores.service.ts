@@ -21,6 +21,6 @@ export class HeoresService {
   };
 
   filter = (value: string): Observable<Hero[]> => {
-    return this.http.get<Hero[]>(`${this.baseUrl}/?q=${value}&_limit=5`);
+    return this.http.get<Hero[]>(`${this.baseUrl}?q=${value}&_limit=5`);
   };
 }
