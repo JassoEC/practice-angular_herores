@@ -171,13 +171,40 @@
       "id": "vihfMcG"
     },
     {
-      "superhero": "Rodin",
-      "alter_ego": "",
+      "superhero": "Robin",
+      "alter_ego": "Ricardo Tapia",
+      "characters": "Robin Junior",
+      "publisher": "DC Comics",
+      "alt_img": "",
+      "first_appearance": "Batman 1",
+      "id": "IAUC9_V"
+    },
+    {
+      "superhero": "La wonder women",
+      "alter_ego": "Diana Prince",
+      "characters": "Wonder woman",
+      "publisher": "DC Comics",
+      "alt_img": "",
+      "first_appearance": "",
+      "id": "VfqR7ov"
+    },
+    {
+      "superhero": "El Superman Nego",
+      "alter_ego": "Blacky",
+      "characters": "El sueer man negro",
+      "publisher": "DC Comics",
+      "alt_img": "",
+      "first_appearance": "Negro, es negro",
+      "id": "Fh_b5wI"
+    },
+    {
+      "superhero": "Otro negro",
+      "alter_ego": "Niga",
       "characters": "",
       "publisher": "DC Comics",
       "alt_img": "",
       "first_appearance": "",
-      "id": "IAUC9_V"
+      "id": "mfi_o7K"
     }
   ]
 }

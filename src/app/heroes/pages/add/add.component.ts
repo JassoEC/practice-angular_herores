@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Hero, Publisher } from '../../interfaces/heroes.interface';
 import { HeoresService } from '../../services/heores.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add',
@@ -22,16 +24,31 @@ export class AddComponent implements OnInit {
     alt_img: '',
     first_appearance: '',
   };
-  constructor(private heroService: HeoresService) {}
+  constructor(
+    private heroService: HeoresService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.activatedRoute.params
+      .pipe(switchMap(({ id }) => this.heroService.getHeroById(id)))
+      .subscribe((hero) => (this.hero = hero));
+  }
 
   save = () => {
     if (this.hero.superhero.trim().length === 0) {
       return;
     }
-    this.heroService.storeHero(this.hero).subscribe((response) => {
-      console.log(response);
-    });
+
+    if (this.hero.id) {
+      this.heroService
+        .updateHero(this.hero)
+        .subscribe((hero) => this.router.navigate(['/heroes', hero.id]));
+    } else {
+      this.heroService.storeHero(this.hero).subscribe((hero) => {
+        this.router.navigate(['/heroes', hero.id]);
+      });
+    }
   };
 }
