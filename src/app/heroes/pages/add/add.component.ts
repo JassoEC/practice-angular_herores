@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { switchMap } from 'rxjs/operators';
 import { Hero, Publisher } from '../../interfaces/heroes.interface';
 import { HeoresService } from '../../services/heores.service';
-import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add',
@@ -34,7 +35,8 @@ export class AddComponent implements OnInit {
   constructor(
     private heroService: HeoresService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -53,13 +55,26 @@ export class AddComponent implements OnInit {
     }
 
     if (this.hero.id) {
-      this.heroService
-        .updateHero(this.hero)
-        .subscribe((hero) => this.router.navigate(['/heroes', hero.id]));
+      this.heroService.updateHero(this.hero).subscribe((hero) => {
+        this.showSnackBar('Registro actualizado');
+        this.router.navigate(['/heroes', hero.id]);
+      });
     } else {
       this.heroService.storeHero(this.hero).subscribe((hero) => {
+        this.showSnackBar('Heroe creado');
         this.router.navigate(['/heroes', hero.id]);
       });
     }
+  };
+
+  delete = () => {
+    this.heroService.deleteHero(this.hero.id!).subscribe((resp) => {
+      this.showSnackBar('Heroe borrado');
+      this.router.navigate(['/heroes']);
+    });
+  };
+
+  showSnackBar = (message: string): void => {
+    this.snackBar.open(message, 'Cerrar', { duration: 3000 });
   };
 }

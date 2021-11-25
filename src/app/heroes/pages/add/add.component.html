@@ -47,12 +47,19 @@
       />
     </mat-form-field>
 
-    <button mat-raised-button color="primary" (click)="save()">
-      <mat-icon>edit</mat-icon>
-      Guardar
-    </button>
+    <div fxLayout>
+      <button mat-raised-button color="primary" (click)="save()">
+        <mat-icon>edit</mat-icon>
+        Guardar
+      </button>
+      <span class="spacer"></span>
+      <button mat-raised-button color="warn" *ngIf="hero.id" (click)="delete()">
+        <mat-icon>remove</mat-icon>
+        Borrar
+      </button>
+    </div>
   </div>
-  <div fxFlex="50">
+  <div fxFlex="50" fxLayout="column">
     <img [src]="hero | heroImage" />
   </div>
 </div>
