@@ -12,8 +12,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material/material.module';
 import { HeroCardComponent } from './components/hero-card/hero-card.component';
 import { HeroImagePipe } from './pipes/hero-image.pipe';
-
-
+import { ConfimDialogComponent } from './components/confim-dialog/confim-dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +22,15 @@ import { HeroImagePipe } from './pipes/hero-image.pipe';
     ListComponent,
     SearchComponent,
     HeroCardComponent,
-    HeroImagePipe
+    HeroImagePipe,
+    ConfimDialogComponent,
   ],
   imports: [
     CommonModule,
     FlexLayoutModule,
     FormsModule,
     HeroesRoutingModule,
-    MaterialModule
-  ]
+    MaterialModule,
+  ],
 })
-export class HeroesModule { }
+export class HeroesModule {}
