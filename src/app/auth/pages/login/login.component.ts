@@ -12,7 +12,6 @@ export class LoginComponent {
 
   login = () => {
     this.authService.login().subscribe((auth) => {
-      console.log(auth);
       this.router.navigate(['/heroes']);
     });
   };
